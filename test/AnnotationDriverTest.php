@@ -3,7 +3,9 @@
 namespace Eoko\ODM\Test;
 
 use Eoko\ODM\Metadata\Annotation\AnnotationDriver;
+use Eoko\ODM\Metadata\Annotation\AnnotationFactory;
 use Eoko\ODM\Metadata\Annotation\Test\Entity\UserEntity;
+use Mockery;
 use PHPUnit_Framework_TestCase;
 
 class AnnotationDriverTest extends PHPUnit_Framework_TestCase
@@ -15,8 +17,10 @@ class AnnotationDriverTest extends PHPUnit_Framework_TestCase
     private function getDriver()
     {
         $config = include(__DIR__ . '/../config/module.config.php');
-        $options = $config['odm']['metadata']['options'];
-        return new AnnotationDriver($options);
+        $factory = new AnnotationFactory();
+        $serviceLocator = Mockery::mock('Zend\ServiceManager\ServiceLocatorInterface');
+        $serviceLocator->shouldReceive('get')->andReturn($config);
+        return $factory->createService($serviceLocator);
     }
 
     /**
