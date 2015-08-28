@@ -1,0 +1,54 @@
+{
+    "name": "eoko/odm/metadata/annotation",
+    "description":"Load metadata from annotation",
+    "keywords":["ODM","metadata", "annotation"],
+    "type":"library",
+    "license":"MIT",
+
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+
+    "authors":[
+        {
+            "name":"Romain DARY",
+            "email": "romain.dary@eoko.fr",
+            "homepage":"http://eoko.fr"
+        }
+    ],
+    "homepage": "https://github.com/eoko/odm",
+    "autoload": {
+        "psr-0": {
+            "Eoko\\ODM\\Metadata\\Annotation": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Eoko\\ODM\\Metadata\\Annotation\\Test\\": "test/"
+        }
+    },
+
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/eoko/odm-entitymanager"
+        }
+    ],
+
+    "require": {
+        "zendframework/zend-servicemanager": "^2.5@dev",
+        "zendframework/zend-eventmanager": "^2.5@dev",
+        "aws/aws-sdk-php": "~3.0@dev",
+        "doctrine/common": "~2.6@dev",
+        "zendframework/zend-filter": "~2.5@dev",
+        "zendframework/zend-cache": "~2.5@dev",
+        "cocur/slugify": "dev-master",
+        "eoko/odm/document-manager": "dev-master"
+    },
+
+    "require-dev": {
+        "satooshi/php-coveralls": "0.6.*",
+        "fabpot/php-cs-fixer": "1.7.*",
+        "phpunit/phpunit": "^5.0@dev",
+        "mockery/mockery": "dev-master"
+    }
+}
