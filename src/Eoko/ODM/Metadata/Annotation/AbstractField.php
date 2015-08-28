@@ -27,6 +27,4 @@ abstract class AbstractField extends Annotation implements FieldInterface
     {
         return $this->value;
     }
-
-
 }

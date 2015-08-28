@@ -23,5 +23,4 @@ class KeySchema extends Annotation implements IdentifierInterface
     {
         return $this->keys;
     }
-
 }

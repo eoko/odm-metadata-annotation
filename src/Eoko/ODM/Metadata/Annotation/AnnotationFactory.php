@@ -8,11 +8,11 @@
 
 namespace Eoko\ODM\Metadata\Annotation;
 
-
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class AnnotationFactory implements FactoryInterface {
+class AnnotationFactory implements FactoryInterface
+{
     /**
      * Create service
      *
@@ -25,6 +25,4 @@ class AnnotationFactory implements FactoryInterface {
         $options = $config['eoko']['odm']['metadata']['options'];
         return new AnnotationDriver($options);
     }
-
-
 }
