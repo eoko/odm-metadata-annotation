@@ -3,7 +3,7 @@
 namespace Eoko\ODM\Metadata\Annotation\Test\Entity;
 
 use Eoko\ODM\Metadata\Annotation\Document;
-use Eoko\ODM\Metadata\Annotation\String as _String;
+use Eoko\ODM\Metadata\Annotation\StringField;
 use Eoko\ODM\Metadata\Annotation\DateTime;
 use Eoko\ODM\Metadata\Annotation\KeySchema;
 use Eoko\ODM\Metadata\Annotation\Boolean;
@@ -16,7 +16,7 @@ class UserEntity
 {
 
     /**
-     * @_String
+     * @StringField
      */
     protected $username;
 
@@ -26,7 +26,7 @@ class UserEntity
     protected $created_at;
 
     /**
-     * @_String
+     * @StringField
      */
     protected $email;
 
