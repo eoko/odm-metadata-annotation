@@ -27,4 +27,12 @@ abstract class AbstractField extends Annotation implements FieldInterface
     {
         return $this->value;
     }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
 }
