@@ -25,7 +25,6 @@ class AnnotationDriver implements DriverInterface
      */
     public function getFieldsMetadata($classname)
     {
-        $fields = [];
         foreach ($this->getReflectionClass($classname)->getProperties() as $property) {
             $properties = array_reduce($this->reader->getPropertyAnnotations($property), function ($reduced, $current) use ($property, $classname) {
 
@@ -61,11 +60,17 @@ class AnnotationDriver implements DriverInterface
     public function getClassMetadata($classname)
     {
         $classMetadata = [];
-        $classAnnotations = $this->reader->getClassAnnotations($this->getReflectionClass($classname));
+        $reflexionClass = $this->getReflectionClass($classname);
+        $classAnnotations = $this->reader->getClassAnnotations($reflexionClass);
 
         foreach ($classAnnotations as $classAnnotation) {
             $classMetadata[get_class($classAnnotation)] = $classAnnotation;
         }
+
+        if($this->reader->getClassAnnotation($reflexionClass, ParentClass::class)) {
+            $classMetadata = array_merge($this->getClassMetadata(get_parent_class($classname)), $classMetadata);
+        }
+
         return $classMetadata;
     }
 

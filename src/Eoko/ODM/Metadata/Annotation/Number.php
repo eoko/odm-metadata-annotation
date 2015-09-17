@@ -8,5 +8,5 @@ namespace Eoko\ODM\Metadata\Annotation;
  */
 final class Number extends AbstractField
 {
-    public $type = 'string';
+    public $type = 'number';
 }
