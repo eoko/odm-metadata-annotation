@@ -46,6 +46,13 @@ Get Started
 
 @todo
 
+Annotation
+----------
+
+## Index
+
+    @Index(name="username_email-verified_index", fields={"username", "email_verified"})
+
 Events
 ------
 

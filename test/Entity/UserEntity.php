@@ -3,6 +3,7 @@
 namespace Eoko\ODM\Metadata\Annotation\Test\Entity;
 
 use Eoko\ODM\Metadata\Annotation\Document;
+use Eoko\ODM\Metadata\Annotation\Index;
 use Eoko\ODM\Metadata\Annotation\StringField;
 use Eoko\ODM\Metadata\Annotation\DateTime;
 use Eoko\ODM\Metadata\Annotation\KeySchema;
@@ -11,6 +12,8 @@ use Eoko\ODM\Metadata\Annotation\Boolean;
 /**
  * @Document(table="oauth_users", provision={"ReadCapacityUnits" : 1, "WriteCapacityUnits" : 1})
  * @KeySchema(keys={"username" : "HASH"})
+ * @Index(name="username_email-verified_index", fields={"username", "email_verified"})
+ * @Index(name="username_index", fields={"username"})
  */
 class UserEntity
 {

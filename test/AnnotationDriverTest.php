@@ -2,6 +2,7 @@
 
 namespace Eoko\ODM\Test;
 
+use Eoko\ODM\DocumentManager\Metadata\IndexInterface;
 use Eoko\ODM\Metadata\Annotation\AnnotationDriver;
 use Eoko\ODM\Metadata\Annotation\AnnotationFactory;
 use Eoko\ODM\Metadata\Annotation\Test\Entity\UserEntity;
@@ -24,14 +25,28 @@ class AnnotationDriverTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Check is the index annotation is compliant
+     */
+    public function testIndexAnnotation() {
+        $metadata = $this->getDriver()->getClassMetadata(UserEntity::class);
+        $this->assertEquals(2, count($metadata['Eoko\ODM\Metadata\Annotation\Index']));
+
+        foreach($metadata['Eoko\ODM\Metadata\Annotation\Index'] as $index) {
+            $this->assertInstanceOf(IndexInterface::class, $index);
+            $this->assertInternalType('array', $index->getFields());
+            $this->assertInternalType('string', $index->getName());
+        }
+    }
+
+    /**
      * @todo improve
      */
     public function testClassMetadata()
     {
         $metadatas = $this->getDriver()->getClassMetadata(UserEntity::class);
         $this->assertInternalType('array', $metadatas);
-        $this->assertInstanceOf('Eoko\ODM\DocumentManager\Metadata\DocumentInterface', $metadatas['Eoko\ODM\Metadata\Annotation\Document']);
-        $this->assertInstanceOf('Eoko\ODM\DocumentManager\Metadata\IdentifierInterface', $metadatas['Eoko\ODM\Metadata\Annotation\KeySchema']);
+        $this->assertInstanceOf('Eoko\ODM\DocumentManager\Metadata\DocumentInterface', array_pop($metadatas['Eoko\ODM\Metadata\Annotation\Document']));
+        $this->assertInstanceOf('Eoko\ODM\DocumentManager\Metadata\IdentifierInterface', array_pop($metadatas['Eoko\ODM\Metadata\Annotation\KeySchema']));
     }
 
     /**
