@@ -27,11 +27,12 @@ class AnnotationDriverTest extends PHPUnit_Framework_TestCase
     /**
      * Check is the index annotation is compliant
      */
-    public function testIndexAnnotation() {
+    public function testIndexAnnotation()
+    {
         $metadata = $this->getDriver()->getClassMetadata(UserEntity::class);
         $this->assertEquals(2, count($metadata['Eoko\ODM\Metadata\Annotation\Index']));
 
-        foreach($metadata['Eoko\ODM\Metadata\Annotation\Index'] as $index) {
+        foreach ($metadata['Eoko\ODM\Metadata\Annotation\Index'] as $index) {
             $this->assertInstanceOf(IndexInterface::class, $index);
             $this->assertInternalType('array', $index->getFields());
             $this->assertInternalType('string', $index->getName());

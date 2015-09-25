@@ -7,6 +7,7 @@
  */
 
 namespace Eoko\ODM\Metadata\Annotation;
+
 use Doctrine\Common\Annotations\Annotation;
 
 /**
@@ -19,5 +20,4 @@ final class Projection extends Annotation
      * @var string
      */
     public $projectionType;
-
 }
