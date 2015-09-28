@@ -12,7 +12,7 @@ use Eoko\ODM\Metadata\Annotation\Boolean;
 /**
  * @Document(table="oauth_users", provision={"ReadCapacityUnits" : 1, "WriteCapacityUnits" : 1})
  * @KeySchema(keys={"username" : "HASH"})
- * @Index(name="username_email-verified_index", fields={"username", "email_verified"})
+ * @Index(name="username_email-verified_index", fields={"username" : "hash", "email_verified" : "range"})
  * @Index(name="username_index", fields={"username"})
  */
 class UserEntity

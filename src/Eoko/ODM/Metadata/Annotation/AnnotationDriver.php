@@ -73,7 +73,7 @@ class AnnotationDriver implements DriverInterface
 
 
         if ($this->reader->getClassAnnotation($reflexionClass, ParentClass::class)) {
-            $classMetadata = array_merge($this->getClassMetadata(get_parent_class($classname)), $classMetadata);
+            $classMetadata = array_merge_recursive($this->getClassMetadata(get_parent_class($classname)), $classMetadata);
         }
 
         return $classMetadata;
