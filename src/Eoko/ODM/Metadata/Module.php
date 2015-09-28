@@ -10,6 +10,7 @@ class Module
 
     public function getAutoloaderConfig()
     {
+        die('------------------------------------');
         return [
             'Zend\Loader\StandardAutoloader' => [
                 'namespaces' => [
