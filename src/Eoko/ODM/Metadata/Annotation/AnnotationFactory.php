@@ -22,7 +22,7 @@ class AnnotationFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $config = $serviceLocator->get('Config') ;
-        $options = $config['eoko']['odm']['metadata']['options'];
+        $options = isset($config['eoko']['odm']['metadata']['options']) && is_array($config['eoko']['odm']['metadata']['options']) ? $config['eoko']['odm']['metadata']['options'] : [];
         return new AnnotationDriver($options);
     }
 }
