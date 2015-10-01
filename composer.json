@@ -1,5 +1,5 @@
 {
-    "name": "eoko/odm/metadata/annotation",
+    "name": "eoko/odm-metadata-annotation",
     "description":"Load metadata from annotation",
     "keywords":["ODM","metadata", "annotation"],
     "type":"library",
