@@ -30,7 +30,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/eoko/odm-entitymanager"
+            "url": "git@github.com:eoko/odm-documentmanager.git"
         }
     ],
 
