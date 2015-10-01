@@ -27,13 +27,6 @@
         }
     },
 
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/eoko/odm-documentmanager.git"
-        }
-    ],
-
     "require": {
         "zendframework/zend-servicemanager": "^2.5@dev",
         "zendframework/zend-eventmanager": "^2.5@dev",
@@ -41,7 +34,7 @@
         "doctrine/common": "~2.6@dev",
         "zendframework/zend-filter": "~2.5@dev",
         "zendframework/zend-cache": "~2.5@dev",
-        "eoko/odm/document-manager": "dev-master"
+        "eoko/odm-document-manager": "dev-master"
     },
 
     "require-dev": {
