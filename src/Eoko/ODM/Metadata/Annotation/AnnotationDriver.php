@@ -37,20 +37,24 @@ class AnnotationDriver implements DriverInterface
                         $property->setAccessible(true);
                         $current->value = $property->getValue($classname);
                     }
+
+                    $key = get_class($current);
+                    if (isset($reduced[$key])) {
+                        if (!is_array($reduced[$key])) {
+                            $reduced[$key] = [$reduced[$key]];
+                        }
+                        $reduced[$key][] = $current;
+                    } else {
+                        $reduced[$key] = $current;
+                    }
+                    return $reduced;
                 }
 
-                $key = get_class($current);
-                if (isset($reduced[$key])) {
-                    if (!is_array($reduced[$key])) {
-                        $reduced[$key] = [$reduced[$key]];
-                    }
-                    $reduced[$key][] = $current;
-                } else {
-                    $reduced[$key] = $current;
-                }
-                return $reduced;
             });
-            $fields[$property->getName()] = $properties;
+
+            if (!is_null($properties)) {
+                $fields[$property->getName()] = $properties;
+            }
         }
 
         return $fields;
