@@ -13,10 +13,12 @@ class AnnotationDriver implements DriverInterface
     /** @var  AnnotationReader */
     protected $reader;
 
-    public function __construct($options)
+    public function __construct($options = [])
     {
         $this->reader = new AnnotationReader();
-        AnnotationRegistry::registerAutoloadNamespaces($options['autoload']);
+
+        $autoload = (isset($options['autoload']) && is_array($options['autoload']) ? $options['autoload'] : [];
+        AnnotationRegistry::registerAutoloadNamespaces($autoload);
     }
 
     /**

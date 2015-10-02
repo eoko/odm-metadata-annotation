@@ -4,11 +4,6 @@ return [
         'odm' => [
             'metadata' => [
                 'driver' => 'Eoko\\ODM\\Metadata\\Annotation',
-                'options' => [
-                    'autoload' => [
-                        'Eoko\\ODM\\Metadata\\Annotation' => __DIR__ . '/../src/'
-                    ],
-                ],
             ],
         ],
     ],
