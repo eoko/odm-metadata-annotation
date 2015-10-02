@@ -17,7 +17,8 @@ class AnnotationDriver implements DriverInterface
     {
         $this->reader = new AnnotationReader();
 
-        $autoload = (isset($options['autoload']) && is_array($options['autoload']) ? $options['autoload'] : [];
+        $autoload = (isset($options['autoload']) && is_array($options['autoload'])) ?
+            $options['autoload'] : ['Eoko\\ODM\\Metadata\\Annotation' => __DIR__ . '/../../../../'];
         AnnotationRegistry::registerAutoloadNamespaces($autoload);
     }
 
@@ -68,7 +69,7 @@ class AnnotationDriver implements DriverInterface
 
         foreach ($classAnnotations as $classAnnotation) {
             if (!isset($classMetadata[get_class($classAnnotation)])) {
-                $classMetadata[get_class($classAnnotation)] =  [];
+                $classMetadata[get_class($classAnnotation)] = [];
             }
             $classMetadata[get_class($classAnnotation)][] = $classAnnotation;
         }
