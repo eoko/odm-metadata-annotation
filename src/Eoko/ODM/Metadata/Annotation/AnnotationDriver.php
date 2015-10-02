@@ -51,8 +51,8 @@ class AnnotationDriver implements DriverInterface
                 }
 
             });
-
-            if (!is_null($properties)) {
+            
+            if( !is_null($properties)) {
                 $fields[$property->getName()] = $properties;
             }
         }
